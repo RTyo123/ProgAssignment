@@ -180,8 +180,8 @@ public class Main_2 {
     private static void second_part(){
         TimeMS  a = new TimeMS();
         TimeMS  b = new TimeMS(23, 59, 59),
-                c = new TimeMS(12, 0, 1),
-                d = new TimeMS(0, 0, 1);
+                c = new TimeMS(12, 0, 0),
+                d = new TimeMS(0, 0, 0);
 
         System.out.println(a.getTime());
         System.out.println(b.getTime());

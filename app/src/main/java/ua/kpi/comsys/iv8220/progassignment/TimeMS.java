@@ -16,7 +16,7 @@ public class TimeMS {
     }
 
     public TimeMS(int hour, int minute, int seconds) {
-        if (hour >= 0 && hour <= 24)
+        if (hour >= 0 && hour <= 23)
             this.hour = hour;
         else
             this.hour = 0;
@@ -30,6 +30,10 @@ public class TimeMS {
             this.seconds = seconds;
         else
             this.seconds = 0;
+
+        /*if (this.hour == 0){
+            this.hour = 12;
+        }*/
     }
 
     public TimeMS(Date date) {
@@ -40,14 +44,14 @@ public class TimeMS {
 
     @SuppressLint("DefaultLocale")
     public String getTime() {
-        return String.format("%d:%d:%d %sM", hour>12? hour-12: hour, minute, seconds, hour>12? "P": "A");
+        return String.format("%d:%d:%d %sM", hour>12? hour-12: hour == 0? 12: hour, minute, seconds, hour<12? "A": "P");
     }
 
     private int getTimeInSec(){
         return hour*3600 + minute*60 + seconds;
     }
 
-    private int[] getTimeFromSec(int secs) {
+    private static int[] getTimeFromSec(int secs) {
         int newHour = secs/3600;
         secs %= 3600;
         int newMin = secs/60;
@@ -65,7 +69,7 @@ public class TimeMS {
         return getTimeSum(this, b);
     }
 
-    public TimeMS getTimeSub(TimeMS a, TimeMS b) {
+    public static TimeMS getTimeSub(TimeMS a, TimeMS b) {
         int[] sum = getTimeFromSec((24*3600)+a.getTimeInSec() - b.getTimeInSec());
         //System.out.println(sum[0] + " " + sum[1] + " " + sum[2]);
         sum[0] %= 24;
