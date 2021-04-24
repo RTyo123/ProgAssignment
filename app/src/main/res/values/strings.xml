@@ -2,5 +2,5 @@
     <string name="app_name">ProgAssignment</string>
     <string name="title_home">General</string>
     <string name="title_dashboard">Graph</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Movies</string>
 </resources>
