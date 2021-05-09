@@ -3,4 +3,5 @@
     <string name="title_home">General</string>
     <string name="title_dashboard">Graph</string>
     <string name="title_notifications">Movies</string>
+    <string name="title_gallery">Gallery</string>
 </resources>
